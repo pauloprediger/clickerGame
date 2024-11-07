@@ -5,11 +5,10 @@ function App() {
 
   return (
     <>
-    <div className='bodyGame'>
-        <sectionGame/>
-        <section className='sectionGame'>Teste</section>
-        <section className='sectionGame'>Teste</section>
-        <section className='sectionGame'>Teste</section>
+      <div className="bodyGame">
+        <SectionGame collor="red" />
+        <SectionGame collor="green" />
+        <SectionGame collor="blue" />
       </div>
     </>
   )

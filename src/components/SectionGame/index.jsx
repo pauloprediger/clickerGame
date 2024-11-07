@@ -1,10 +1,10 @@
 import React from 'react'
 import './SectionGame.css'
 
-const SectionGame = () => {
+export const SectionGame = ({collor}) => {
   return (
-    <>Teste</>
+    <section className='sectionGame' style={{backgroundColor: collor}}>
+      Teste
+    </section>
   )
 }
-
-export default SectionGame
