@@ -1,8 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
 
 .buttonGame {
-    height: 10vh;
+    height: 8.8vh;
     font-family: 'Amatic SC', sans-serif;
     font-weight: bolder;
-    font-size: 2.5em;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Espaça os itens, empurrando o name para a esquerda e o number para a direita */
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    padding: 0 20px; /* Adiciona um pouco de padding para espaçamento interno */
+    border-radius: 8px; /* Arredondamento suave nos cantos */
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para relevo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza a transição do efeito hover */
+    max-width: calc(100% - 40px); /* Garante que o botão não ultrapasse a largura da tela */
+    margin-bottom: 10px; /* Adiciona espaço entre os botões */
+}
+.buttonGame:hover {
+    transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Aumenta a sombra para efeito de "levitação" */
+}
+
+.buttonGame p {
+    padding: 0px;
+    margin-top: -10px;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonGame p .cat-icon {
+    margin-top: 3px;
+}
+
+.buttonGame:active {
+    transform: scale(0.98); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
