@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+.buttonGame {
+    height: 10vh;
+    font-family: 'Amatic SC', sans-serif;
+    font-weight: bolder;
+    font-size: 2.5em;
+}

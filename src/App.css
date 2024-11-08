@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Anton+SC&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -14,4 +16,27 @@ body, #root {
   flex-direction: row;
   width: 100vw;
   height: 100vh;
+}
+
+.buttonContainer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.container-clicker{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.container-clicker h1{
+  font-family: "Anton SC", sans-serif;;
+  font-weight: lighter;
+  font-size: 3em;
+}
+.img-cat{
+  height: auto;
+  max-width: 60%;
 }

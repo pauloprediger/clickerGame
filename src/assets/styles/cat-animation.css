@@ -1,0 +1,26 @@
+/* Animação de pulsar */
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1); /* Aumenta a escala */
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Efeito de aumento de tamanho ao passar o mouse */
+  .img-cat {
+    transition: transform 0.3s ease;
+  }
+  
+  .img-cat:hover {
+    transform: scale(1.1); /* Aumenta a imagem quando o mouse passa em cima */
+  }
+  
+  /* Efeito de pulsar no clique */
+  .pulsing {
+    animation: pulse 0.8s ease-in-out 2; /* 2 vezes em 0.8s */
+  }
