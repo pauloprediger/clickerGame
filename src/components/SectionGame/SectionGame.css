@@ -1,7 +1,13 @@
 .sectionGame {
-  border: 1px solid black;
+  border: 5px solid transparent; 
+  border-image: url('/images/border/border.jpg') 10 repeat; 
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.scrollable-section {
+  overflow-y: auto; /* Habilita a rolagem vertical */
+  max-height: 100vh; /* Use uma altura relativa à viewport para melhor controle */
 }

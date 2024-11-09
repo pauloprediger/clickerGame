@@ -25,4 +25,4 @@ SectionGame.propTypes = {
 	color: PropTypes.string.isRequired,
 	children: PropTypes.node,
 	lightenColor: PropTypes.func.isRequired,
-}
+};

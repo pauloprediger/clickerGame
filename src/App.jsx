@@ -7,16 +7,16 @@ import ButtonGame from './components/ButtonGame';
 
 // Definição inicial dos botões do jogo
 const initialButtonsState = [
-	{ id: uuidv4(), name: 'Siamese', color: '#FFB3BA', numberOfCats: 0, priceOfCats: 15, meowsPerSecond: 0.1 },
-	{ id: uuidv4(), name: 'Maine Coon', color: '#FFDFBA', numberOfCats: 0, priceOfCats: 100, meowsPerSecond: 1 },
-	{ id: uuidv4(), name: 'Bengal', color: '#FFFFBA', numberOfCats: 0, priceOfCats: 1000, meowsPerSecond: 8 },
-	{ id: uuidv4(), name: 'Persian', color: '#BAFFC9', numberOfCats: 0, priceOfCats: 10000, meowsPerSecond: 45 },
-	{ id: uuidv4(), name: 'Sphynx', color: '#BAE1FF', numberOfCats: 0, priceOfCats: 100000, meowsPerSecond: 10000 },
-	{ id: uuidv4(), name: 'Ragdoll', color: '#E6E6FA', numberOfCats: 0, priceOfCats: 1000000, meowsPerSecond: 100000 },
-	{ id: uuidv4(), name: 'Scottish Fold', color: '#FADADD', numberOfCats: 0, priceOfCats: 10000000, meowsPerSecond: 1000000 },
-	{ id: uuidv4(), name: 'Savannah', color: '#C5E1A5', numberOfCats: 0, priceOfCats: 100000000, meowsPerSecond: 10000000 },
-	{ id: uuidv4(), name: 'Russian Blue', color: '#B3E5FC', numberOfCats: 0, priceOfCats: 1000000000, meowsPerSecond: 100000000 },
-	{ id: uuidv4(), name: 'British Shorthair', color: '#D1C4E9', numberOfCats: 0, priceOfCats: 10000000000, meowsPerSecond: 1000000000 }
+	{ id: uuidv4(), name: 'Novelo de Lã', color: '#FFB3BA', numberOfCats: 0, priceOfCats: 15, meowsPerSecond: 0.1 },
+	{ id: uuidv4(), name: 'Ratinho de brinquedo', color: '#FFDFBA', numberOfCats: 0, priceOfCats: 100, meowsPerSecond: 1 },
+	{ id: uuidv4(), name: 'Arranhador', color: '#FFFFBA', numberOfCats: 0, priceOfCats: 1000, meowsPerSecond: 8 },
+	{ id: uuidv4(), name: 'Laser', color: '#BAFFC9', numberOfCats: 0, priceOfCats: 12000, meowsPerSecond: 45 },
+	{ id: uuidv4(), name: 'Catnip', color: '#BAE1FF', numberOfCats: 0, priceOfCats: 130000, meowsPerSecond: 250 },
+	{ id: uuidv4(), name: 'Caixa de papelão', color: '#E6E6FA', numberOfCats: 0, priceOfCats: 1400000, meowsPerSecond: 100000 },
+	{ id: uuidv4(), name: 'Gastinho Siames', color: '#FADADD', numberOfCats: 0, priceOfCats: 20000000, meowsPerSecond: 1000000 },
+	{ id: uuidv4(), name: 'Gatinho Galactico', color: '#C5E1A5', numberOfCats: 0, priceOfCats: 100000000, meowsPerSecond: 10000000 },
+	{ id: uuidv4(), name: 'Gato Multidimensional', color: '#B3E5FC', numberOfCats: 0, priceOfCats: 1000000000, meowsPerSecond: 100000000 },
+	{ id: uuidv4(), name: 'Gatinho Onipotente', color: '#D1C4E9', numberOfCats: 0, priceOfCats: 10000000000, meowsPerSecond: 1000000000 },
 ];
 
 // Reducer para gerenciar o estado dos botões
@@ -64,20 +64,13 @@ function App() {
 		}
 	}, [calculateMeowsPerSecond]);
 
-	// Definição das cores de fundo das seções do jogo (memoizada com useMemo)
-	const definitionsSectionGame = useMemo(() => [
-		{ id: uuidv4(), name: 'clicker', color: '#FFBCBC' },
-		{ id: uuidv4(), name: 'menuClicker', color: '#E3EA94' },
-		{ id: uuidv4(), name: 'shopClicker', color: '#6882B3' }
-	], []);
-
 	// Função para incrementar o contador de Meows, memorizada com useCallback
 	const onChangeMeow = useCallback(() => {
 		setMeowCount(prevCount => prevCount + 1);
 		if (audioRef.current) {
 			audioRef.current.play();
 		}
-	
+
 		// Lógica de animação para o clique
 		const catImage = document.querySelector('.img-cat');
 		if (catImage) {
@@ -112,6 +105,13 @@ function App() {
 		}
 	}, [buttonsGame, meowCount]);
 
+	// Definindo as seções do jogo
+	const definitionsSectionGame = useMemo(() => [
+		{ id: uuidv4(), name: 'clicker', color: '#FFBCBC' },
+		{ id: uuidv4(), name: 'menuClicker', color: '#E3EA94' },
+		{ id: uuidv4(), name: 'shopClicker', color: '#6882B3' }
+	], []);
+
 	return (
 		<div className='bodyGame'>
 			{definitionsSectionGame.map(sectionGame => (
@@ -119,7 +119,8 @@ function App() {
 					key={sectionGame.id}
 					name={sectionGame.name}
 					color={sectionGame.color}
-					lightenColor={lightenColor} // Passando a função lightenColor
+					lightenColor={lightenColor}
+					className={sectionGame.name === 'shopClicker' ? 'scrollable-section' : ''}
 				>
 					{sectionGame.name === 'clicker' && (
 						<div className='container-clicker'>
@@ -137,17 +138,21 @@ function App() {
 						</div>
 					)}
 					{sectionGame.name === 'shopClicker' && (
-						<div className='buttonContainer'>
-							{buttonsGame.map(buttonGame => (
-								<ButtonGame
-									key={buttonGame.id}
-									name={buttonGame.name}
-									color={buttonGame.color}
-									number={buttonGame.numberOfCats}
-									price={buttonGame.priceOfCats}
-									onClick={() => handleButtonClick(buttonGame.id)}
-								/>
-							))}
+						<div className='buttonContainer scrollable-section'>
+							{buttonsGame.map((buttonGame, index) => {
+								const canShow = index === 0 || buttonsGame[index - 1].numberOfCats > 0;
+								return canShow ? (
+									<ButtonGame
+										key={buttonGame.id}
+										name={buttonGame.name}
+										color={buttonGame.color}
+										number={buttonGame.numberOfCats}
+										price={buttonGame.priceOfCats}
+										onClick={() => handleButtonClick(buttonGame.id)}
+										className="pop-animation" // Animação aplicada aqui
+									/>
+								) : null;
+							})}
 						</div>
 					)}
 				</SectionGame>

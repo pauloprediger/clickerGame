@@ -3,14 +3,14 @@ import PropTypes, { number } from 'prop-types';
 import './ButtonGame.css';
 import { PiCatThin } from 'react-icons/pi';
 
-const ButtonGame = ({name, color, number, price, onClick}) => {
+const ButtonGame = ({name, color, number, price, onClick, className}) => {
 	const buttonStyle = {
 		backgroundColor: color,
 	};
 	return (
-		<button style={buttonStyle} className='buttonGame' onClick={onClick}>
+		<button style={buttonStyle} className= {`buttonGame ${className}`}  onClick={onClick}>
 			<div>
-				<h2>{name}</h2>
+				<h2 className='cat-name'>{name}</h2>
 				<p><PiCatThin className='cat-icon' size={30}/>: {price}</p>
 			</div>
 			<div>

@@ -1,21 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Anton+SC&family=Jersey+15+Charted&family=Pixelify+Sans:wght@400..700&display=swap');
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+  }
+  
 .buttonGame {
-    height: 8.8vh;
-    font-family: 'Amatic SC', sans-serif;
+    height: 8.5vh;
+    color: rgba(0, 0, 0, 0.75);
+    font-family: 'Amati SC', sans-serif;
     font-weight: bolder;
     font-size: 1.5em;
     display: flex;
     flex-direction: row;
-    justify-content: space-between; /* Espaça os itens, empurrando o name para a esquerda e o number para a direita */
-    align-items: center; /* Centraliza verticalmente o conteúdo */
-    padding: 0 20px; /* Adiciona um pouco de padding para espaçamento interno */
-    border-radius: 8px; /* Arredondamento suave nos cantos */
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+    border-radius: 8px; 
     border: 1px solid rgba(0, 0, 0, 0.5);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para relevo */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza a transição do efeito hover */
-    max-width: calc(100% - 40px); /* Garante que o botão não ultrapasse a largura da tela */
-    margin-bottom: 10px; /* Adiciona espaço entre os botões */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    max-width: calc(100% - 40px); 
+    margin-bottom: 10px; 
+}
+.buttonGame .cat-name{
+    font-family: 'Pixelify Sans', sans-serif;
 }
 .buttonGame:hover {
     transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
@@ -28,8 +43,9 @@
     text-align: left;
     display: flex;
     flex-direction: row;
+    font-family: 'Amati SC', sans-serif;
+    color: rgba(0, 0, 0, 0.6);
 }
-
 .buttonGame p .cat-icon {
     margin-top: 3px;
 }
@@ -37,4 +53,8 @@
 .buttonGame:active {
     transform: scale(0.98); 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.pop-animation {
+    animation: popIn 0.3s ease-out;
 }
